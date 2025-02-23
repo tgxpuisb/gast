@@ -12,3 +12,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.markdown-area * {
+  all: revert;
+}

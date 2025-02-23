@@ -1,7 +1,7 @@
 "use client"
 
 import CustomNav from "@/components/CustomNav"
-import { Button, Input } from "antd"
+import { Button } from "antd"
 import ChatIcon from '../../../public/chat.svg'
 import InfoIcon from '../../../public/info.svg'
 import TrashIcon from '../../../public/trash.svg'
@@ -103,6 +103,7 @@ export default function ThinkTank() {
                 }
                 // value={text}
                 // onChange={setText}
+                placeholder="请输入"
                 onPasteFile={(file) => {
                 }}
                 onSubmit={() => {
