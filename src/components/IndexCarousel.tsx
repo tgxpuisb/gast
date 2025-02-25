@@ -6,7 +6,13 @@ import { Pagination, EffectFade, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/autoplay';
-import Image from "next/image"
+
+import img1 from 'src/assets/images/1.png'
+import img2 from 'src/assets/images/2.png'
+import img3 from 'src/assets/images/3.png'
+import img4 from 'src/assets/images/4.png'
+import img5 from 'src/assets/images/5.png'
+import img6 from 'src/assets/images/6.png'
 
 function IndexCarousel() {
 
@@ -30,22 +36,22 @@ function IndexCarousel() {
         // onSwiper={(swiper) => console.log(swiper)}
         >
         <SwiperSlide className="w-full" style={{ height }}>
-          <Image src={'/images/1.png'} height={height} width={window.screen.width} alt=""/>
+          <img src={img1} height={height} width={window.screen.width} alt=""/>
         </SwiperSlide>
         <SwiperSlide className="w-full" style={{ height }}>
-          <Image src={'/images/2.png'} height={height} width={window.screen.width} alt=""/>
+          <img src={img2} height={height} width={window.screen.width} alt=""/>
         </SwiperSlide>
         <SwiperSlide className="w-full" style={{ height }}>
-          <Image src={'/images/3.png'} height={height} width={window.screen.width} alt=""/>
+          <img src={img3} height={height} width={window.screen.width} alt=""/>
         </SwiperSlide>
         <SwiperSlide className="w-full" style={{ height }}>
-          <Image src={'/images/4.png'} height={height} width={window.screen.width} alt=""/>
+          <img src={img4} height={height} width={window.screen.width} alt=""/>
         </SwiperSlide>
         <SwiperSlide className="w-full" style={{ height }}>
-          <Image src={'/images/5.png'} height={height} width={window.screen.width} alt=""/>
+          <img src={img5} height={height} width={window.screen.width} alt=""/>
         </SwiperSlide>
         <SwiperSlide className="w-full" style={{ height }}>
-          <Image src={'/images/6.png'} height={height} width={window.screen.width} alt=""/>
+          <img src={img6} height={height} width={window.screen.width} alt=""/>
         </SwiperSlide>
       </Swiper>
     </>

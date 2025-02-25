@@ -1,8 +1,6 @@
-import Image from "next/image";
-import CustomNav from "@/components/CustomNav";
-import React from 'react';
+import CustomNav from "../components/CustomNav";
 import 'swiper/swiper-bundle.css';
-import IndexCarousel from "@/components/IndexCarousel";
+import IndexCarousel from "../components/IndexCarousel";
 
 export default function Home() {
   return (

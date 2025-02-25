@@ -1,26 +1,11 @@
-"use client"
 
-import CustomNav from "@/components/CustomNav";
-import { Button, Drawer, Input, Select, Spin, FloatButton } from "antd";
-import '@ant-design/v5-patch-for-react-19';
-import { createRoot } from 'react-dom/client';
-import { unstableSetRender } from 'antd';
-import Link from "next/link";
+import CustomNav from "../components/CustomNav";
+import { Button, Drawer, Input,FloatButton } from "antd";
 import { useState } from "react";
-import { chunk, cloneDeep, random } from 'lodash'
-import Markdown from "react-markdown";
+// import Markdown from "react-markdown";
 import { LinkOutlined } from '@ant-design/icons';
 import { Sender } from '@ant-design/x';
 
-unstableSetRender((node, container) => {
-  container._reactRoot ||= createRoot(container);
-  const root = container._reactRoot;
-  root.render(node);
-  return async () => {
-    await new Promise((resolve) => setTimeout(resolve, 0));
-    root.unmount();
-  };
-});
 
 const { Search } = Input
 
@@ -123,8 +108,8 @@ export default function IntelligentEnterprise() {
                 // value={text}
                 // onChange={setText}
                 placeholder="输入您的问题..."
-                onPasteFile={(file) => {
-                }}
+                // onPasteFile={(file) => {
+                // }}
                 onSubmit={() => {
                 }}
               />

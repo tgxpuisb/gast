@@ -1,0 +1,6 @@
+# Ignore artifacts:
+build
+coverage
+
+src/index.css
+third_party

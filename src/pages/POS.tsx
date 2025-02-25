@@ -1,7 +1,6 @@
-import CustomNav from "@/components/CustomNav"
+import CustomNav from "../components/CustomNav"
 import { Col, Row } from "antd"
-import Image from "next/image"
-import Link from "next/link"
+import { Link } from 'react-router-dom'
 
 const mockList = [
   {
@@ -37,8 +36,8 @@ export default function PopularizationOfScience() {
       <Row gutter={[32, 32]}>
         {mockList.map(it => {
           return <Col span={8} key={it.id} className="cursor-pointer group text-center">
-            <Link href={`/popularization_of_science/${it.id}`}>
-            <img src={`/images/pop/${it.id}.png`} alt="" className="w-full aspect-[16/9] block mb-2 group-hover:shadow-md group-hover:scale-105"/>
+            <Link to={`/popularization_of_science/${it.id}`}>
+            <img src={`/src/assets/images/pop/${it.id}.png`} alt="" className="w-full aspect-[16/9] block mb-2 group-hover:shadow-md group-hover:scale-105"/>
             <span className="group-hover:text-blue-600">{it.title}</span>
             </Link>
           </Col>

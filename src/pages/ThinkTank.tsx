@@ -1,14 +1,12 @@
-"use client"
-
-import CustomNav from "@/components/CustomNav"
+import CustomNav from "../components/CustomNav"
 import { Button } from "antd"
-import ChatIcon from '../../../public/chat.svg'
-import InfoIcon from '../../../public/info.svg'
-import TrashIcon from '../../../public/trash.svg'
-import UserIcon from '../../../public/user.svg'
-import DolphinIcon from '../../../public/dolphin.svg'
-import InfosIcon from '../../../public/infos.svg'
-import DatabaseIcon from '../../../public/database.svg'
+import ChatIcon from 'assets/chat.svg?react'
+import InfoIcon from 'assets/info.svg?react'
+import TrashIcon from 'assets/trash.svg?react'
+import UserIcon from 'assets/user.svg?react'
+import DolphinIcon from 'assets/dolphin.svg?react'
+import InfosIcon from 'assets/infos.svg?react'
+import DatabaseIcon from 'assets/database.svg?react'
 import { useState } from "react"
 import { LinkOutlined } from '@ant-design/icons';
 import { Sender } from '@ant-design/x';
@@ -28,7 +26,7 @@ const mockInfos = [
 
 export default function ThinkTank() {
 
-  const [answer, setAnswer] = useState<string>()
+  const [answer] = useState<string>()
 
   return <div className="flex flex-col h-full">
     <CustomNav className="w-full z-10" activieKey="think_tank" />
@@ -104,8 +102,8 @@ export default function ThinkTank() {
                 // value={text}
                 // onChange={setText}
                 placeholder="请输入"
-                onPasteFile={(file) => {
-                }}
+                // onPasteFile={(file) => {
+                // }}
                 onSubmit={() => {
                 }}
               />

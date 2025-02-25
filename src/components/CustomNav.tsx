@@ -1,9 +1,10 @@
-"use client"
-
-import Image from "next/image";
 import { Menu } from "antd";
 import classNames from "classnames";
-import Link from "next/link";
+import logo from 'assets/images/logo.png'
+
+import {
+  Link
+} from 'react-router-dom'
 
 export default function CustomNav(props: {
   className?: string
@@ -12,7 +13,7 @@ export default function CustomNav(props: {
 
   const items = [
     {
-     label: <Link href="/">首页</Link>,
+     label: <Link to="/">首页</Link>,
      key: 'home',
    },
    {
@@ -20,31 +21,31 @@ export default function CustomNav(props: {
      key: 'news'
    },
    {
-     label: <Link href="/science_policy">科政通</Link>,
+     label: <Link to="/science_policy">科政通</Link>,
      key: 'science_policy'
    },
    {
-     label: <Link href="/science_technology">科创通</Link>,
+     label: '科创通',
      key: 'science_technology'
    },
    {
-     label: <Link href="/intelligent_enterprise">智企通</Link>,
+     label: <Link to="/intelligent_enterprise">智企通</Link>,
      key: 'intelligent_enterprise'
    },
    {
-     label: <Link href="/popularization_of_science">科普通</Link>,
+     label: <Link to="/popularization_of_science">科普通</Link>,
      key: 'popularization_of_science'
    },
    {
-     label: <Link href="/think_tank">AI智库</Link>,
+     label: <Link to="/think_tank">AI智库</Link>,
      key: 'think_tank'
    }
  ]
 
-  return <div className={classNames("h-[160px] bg-[url(/images/nav_bg.png)] bg-no-repeat bg-center bg-cover", props.className)}>
+  return <div className={classNames("h-[160px] bg-[url(/src/assets/images/nav_bg.png)] bg-no-repeat bg-center bg-cover", props.className)}>
     <div className="h-[120px] flex px-[64px] items-center justify-between">
       <a href="http://www.gast.org.cn/" >
-        <Image src={'/images/logo.png'} width={480} height={75} alt="logo"/>
+        <img src={logo} width={480} height={75} alt="logo"/>
       </a>
       <div className="min-w-[600px]">
         <Menu
