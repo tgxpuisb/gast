@@ -14,7 +14,7 @@ export default defineConfig(configEnv => {
     build: {
       outDir: './docs',
     },
-    base: '/gast',
+    // base: '/gast',
     plugins: [
       react(),
       svgr({ svgrOptions: { icon: true } }),
