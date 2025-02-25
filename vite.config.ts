@@ -12,8 +12,9 @@ export default defineConfig(configEnv => {
   const { command, mode } = configEnv
   return {
     build: {
-      outDir: './docs'
+      outDir: './docs',
     },
+    base: '/gast',
     plugins: [
       react(),
       svgr({ svgrOptions: { icon: true } }),
