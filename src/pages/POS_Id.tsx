@@ -2,12 +2,11 @@
 
 import CustomNav from "../components/CustomNav"
 import { useParams } from 'react-router-dom'
-import { LinkOutlined } from '@ant-design/icons';
-import { Sender } from '@ant-design/x';
 import Markdown from "react-markdown";
-import { Button, Drawer, Tooltip } from "antd";
+import { Tooltip } from "antd";
 import { useState } from "react";
 import robot from 'src/assets/images/robot.png'
+import AIMentorFinder from "src/components/AIMentorFinder";
 
 const IDMap:Record<string, {title: string, content: string}> = {
   '1': {
@@ -88,36 +87,7 @@ export default function POSDetail() {
           setOpen(true)
         }}/>
       </Tooltip>
-      <Drawer open={open} width={500} onClose={() => setOpen(false)}>
-        <div className="h-full flex flex-col">
-          <div className="flex-1 min-h-0 ">
-
-          </div>
-            <div className="flex items-center justify-center">
-            <div className="py-10 w-[800px]">
-            <Sender
-              // ref={senderRef}
-              prefix={
-                <Button
-                  type="text"
-                  icon={<LinkOutlined />}
-                  onClick={() => {
-                  }}
-                />
-              }
-              // value={text}
-              // onChange={setText}
-              placeholder="详细说说北盘江大桥的数据"
-              // onPasteFile={(file) => {
-              // }}
-              onSubmit={() => {
-              }}
-            />
-          </div>
-        </div>
-        </div>
-      </Drawer>
-      
+      <AIMentorFinder open={open} setOpen={setOpen}/>
     </div>
   )
 }

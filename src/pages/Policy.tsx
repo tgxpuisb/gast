@@ -1,9 +1,9 @@
-"use client"
-
+import { cloneDeep } from "lodash-es";
 import CustomNav from "../components/CustomNav";
 import { Button, Input, Select, Spin } from "antd";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Markdown from "react-markdown";
+import { randomSplitString } from "src/utils";
 
 const { TextArea } = Input
 
@@ -52,8 +52,7 @@ const SearchResult = [{
 }]
 
 const renderMessage = (content: string) => {
-  console.log(content)
-  return <Markdown>
+  return <Markdown className={'markdown-area'}>
     {content}
   </Markdown>
 }
@@ -67,7 +66,7 @@ const wait = (time: number) => {
 export default function SciencePolicy() {
 
 
-  const [searchValue, setSearchValue] = useState<string>('')
+  const [,setSearchValue] = useState<string>('')
   const [options, setOptions] = useState<Array<{
     label: string
     value: string
@@ -80,7 +79,12 @@ export default function SciencePolicy() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [messages, setMessages] = useState<Array<{ type: "user" | "assistant"; content: string }>>([])
 
-console.log(messages)
+  const messageIndexRef = useRef<number>(messages.length)
+  
+
+  useEffect(() => {
+      messageIndexRef.current = messages.length
+  }, [messages])
 
   const handleSubmit = async () => {
     setIsLoading(true)
@@ -91,22 +95,39 @@ console.log(messages)
     await wait(3000)
     setIsLoading(false)
   
-    const responses = `根据您的需求，我为您找到了以下匹配的政策：
+    const responseTexts = randomSplitString(`根据您的需求，我为您找到了以下匹配的政策：
 
-1. 《[关于推进**${techs[0]}**产业创新发展的指导意见](/intelligent_enterprise?id=1)》
+1. 《[关于推进**${techs[0]}**产业创新发展的指导意见](/intelligent_enterprise?id=3)》
   - 重点支持领域：**${policies[0]}**
   - 补贴金额：最高可达500万元
   - 申请条件：注册满2年的科技企业
     
-2. 《[贵阳国家高新区关于进一步加快高新技术企业培育的政策](/intelligent_enterprise?id=2)》
+2. 《[贵阳国家高新区关于进一步加快高新技术企业培育的政策](/intelligent_enterprise?id=3)》
   - 针对**${techs[0]}**领域的企业
   - 提供税收优惠和研发补贴
   - 可获得专项资金支持
     
-建议您可以优先考虑申请这些政策支持。如果需要更详细的政策信息，我可以为您进一步解答。`
+建议您可以优先考虑申请这些政策支持。如果需要更详细的政策信息，我可以为您进一步解答。`)
     // console.log(responses)
-    
-    setMessages((prev) => [...prev, { type: 'assistant', content: responses }])
+
+   const index = messageIndexRef.current
+   
+    setMessages((prev) => [
+      ...prev,
+      {
+        type: "assistant",
+        content: '',
+      },
+    ])
+
+    while(responseTexts.length > 0) {
+      await wait(150)
+      setMessages((prev) => {
+        prev[index].content += responseTexts.shift() ?? ''
+        return cloneDeep(prev)
+      })
+    }
+
   }
 
   return <div>
@@ -127,14 +148,14 @@ console.log(messages)
           onSearch={() => {
             setTimeout(() => {
               setOptions(SearchResult)
-            }, 1000)
+            }, 300)
           }}
           filterOption={false}
           options={options}
           notFoundContent={options.length === 0 ? <Spin size="small" /> : null}
         />
       </div>
-      {searchValue && messages.length === 0 && 
+      {messages.length === 0 && 
         <>
           <div className="space-y-4 mb-4">
             <h2 className="text-xl font-semibold text-blue-800">请选择您感兴趣的政策主题</h2>
@@ -194,7 +215,7 @@ console.log(messages)
           </div>
         </div>
       )}
-      {searchValue && <div className="space-y-4">
+      {<div className="space-y-4">
         <h2 className="text-xl font-semibold text-blue-800">请描述您的咨询问题</h2>
         <div className="space-y-4">
           <TextArea
@@ -206,6 +227,7 @@ console.log(messages)
           />
           <Button
             size="large"
+            type="primary"
             onClick={handleSubmit}
             disabled={!description.trim() || isLoading}
             className="w-full"

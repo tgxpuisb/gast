@@ -2,7 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-.markdown-area * {
+.markdown-area h1 {
+  all: revert;
+}
+.markdown-area h2 {
+  all: revert;
+}
+.markdown-area h3 {
+  all: revert;
+}
+.markdown-area ul {
+  all: revert;
+}
+.markdown-area ol {
+  all: revert;
+}
+.markdown-area li {
+  all: revert;
+}
+.markdown-area p {
+  all: revert;
+}
+.markdown-area pre {
+  all: revert;
+}
+.markdown-area a {
   all: revert;
 }
 :root {
