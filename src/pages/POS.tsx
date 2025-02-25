@@ -37,7 +37,7 @@ export default function PopularizationOfScience() {
         {mockList.map(it => {
           return <Col span={8} key={it.id} className="cursor-pointer group text-center">
             <Link to={`/popularization_of_science/${it.id}`}>
-            <img src={`/assets/images/pop/${it.id}.png`} alt="" className="w-full aspect-[16/9] block mb-2 group-hover:shadow-md group-hover:scale-105"/>
+            <img src={`/images/pop/${it.id}.png`} alt="" className="w-full aspect-[16/9] block mb-2 group-hover:shadow-md group-hover:scale-105"/>
             <span className="group-hover:text-blue-600">{it.title}</span>
             </Link>
           </Col>
