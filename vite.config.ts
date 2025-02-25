@@ -11,6 +11,9 @@ import { viteMockServe } from 'vite-plugin-mock'
 export default defineConfig(configEnv => {
   const { command, mode } = configEnv
   return {
+    build: {
+      outDir: './docs'
+    },
     plugins: [
       react(),
       svgr({ svgrOptions: { icon: true } }),
