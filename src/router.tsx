@@ -12,27 +12,27 @@ import SciencePolicy from './pages/Policy'
 
 const RouteConfig: RouteObject[] = [
   {
-    path: '/',
+    path: '/gast',
     element: <Index/>
   },
   {
-    path: '/think_tank',
+    path: '/gast/think_tank',
     element: <ThinkTank/>
   },
   {
-    path: '/science_policy',
+    path: '/gast/science_policy',
     element: <SciencePolicy/>
   },
   {
-    path: '/popularization_of_science',
+    path: '/gast/popularization_of_science',
     element: <POS/>
   },
   {
-    path: '/popularization_of_science/:id',
+    path: '/gast/popularization_of_science/:id',
     element: <POS_ID/>
   },
   {
-    path: '/intelligent_enterprise',
+    path: '/gast/intelligent_enterprise',
     element: <IntelligentEnterprise/>
   }
 ]
