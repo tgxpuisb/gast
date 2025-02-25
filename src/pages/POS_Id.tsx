@@ -1,7 +1,7 @@
 "use client"
 
-import CustomNav from "@/components/CustomNav"
-import { useParams } from "next/navigation"
+import CustomNav from "../components/CustomNav"
+import { useParams } from 'react-router-dom'
 import { LinkOutlined } from '@ant-design/icons';
 import { Sender } from '@ant-design/x';
 import Markdown from "react-markdown";
@@ -13,7 +13,7 @@ const IDMap:Record<string, {title: string, content: string}> = {
     title: '贵州桥梁',
     content: `# 贵州桥梁：山间的奇迹
 
-![贵州桥梁](/images/pop/1.png)  
+![贵州桥梁](/src/assets/images/pop/1.png)  
 *图：贵州某著名桥梁，横跨山谷，气势恢宏。*
 
 ## 引言
@@ -35,13 +35,13 @@ const IDMap:Record<string, {title: string, content: string}> = {
 ### 1. **北盘江大桥**
 北盘江大桥是世界上最高的桥梁之一，桥面距离谷底高度超过500米。这座桥不仅是一项工程奇迹，也是一处壮观的旅游景点。
 
-![北盘江大桥](/images/pop/beipanjiang.png)  
+![北盘江大桥](/src/assets/images/pop/beipanjiang.png)  
 *图：北盘江大桥，横跨深谷，气势磅礴。*
 
 ### 2. **坝陵河大桥**
 坝陵河大桥是中国第一座悬索桥，全长超过1000米。这座桥的设计和建造技术在当时处于世界领先水平。
 
-![坝陵河大桥](/images/pop/balinghe.png)  
+![坝陵河大桥](/src/assets/images/pop/balinghe.png)  
 *图：坝陵河大桥，悬索设计，雄伟壮观。*
 
 ## 桥梁建设的意义
@@ -66,7 +66,7 @@ const IDMap:Record<string, {title: string, content: string}> = {
 
 export default function POSDetail() {
   const params = useParams<{id: string}>()
-  const id = params?.id
+  const id = params?.id!
 
   const infos = IDMap[id]
   const [open, setOpen] = useState<boolean>(false)
@@ -83,7 +83,7 @@ export default function POSDetail() {
           </div></div>}
       </div>
       <Tooltip title={"可以向我询问更多科普知识"} showArrow>
-        <img className="absolute bottom-10 right-10" src="/images/robot.png" width={200} height={200} onClick={() => {
+        <img className="absolute bottom-10 right-10" src="/src/assets/images/robot.png" width={200} height={200} onClick={() => {
           setOpen(true)
         }}/>
       </Tooltip>
@@ -107,8 +107,8 @@ export default function POSDetail() {
               // value={text}
               // onChange={setText}
               placeholder="详细说说北盘江大桥的数据"
-              onPasteFile={(file) => {
-              }}
+              // onPasteFile={(file) => {
+              // }}
               onSubmit={() => {
               }}
             />

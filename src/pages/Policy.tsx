@@ -1,22 +1,9 @@
 "use client"
 
-import CustomNav from "@/components/CustomNav";
+import CustomNav from "../components/CustomNav";
 import { Button, Input, Select, Spin } from "antd";
-import '@ant-design/v5-patch-for-react-19';
-import { createRoot } from 'react-dom/client';
-import { unstableSetRender } from 'antd';
 import { useState } from "react";
 import Markdown from "react-markdown";
-
-unstableSetRender((node, container) => {
-  container._reactRoot ||= createRoot(container);
-  const root = container._reactRoot;
-  root.render(node);
-  return async () => {
-    await new Promise((resolve) => setTimeout(resolve, 0));
-    root.unmount();
-  };
-});
 
 const { TextArea } = Input
 
@@ -102,7 +89,6 @@ console.log(messages)
     setMessages((prev) => [...prev, { type: "user", content: userMessage }])
 
     await wait(3000)
-    const index = 1
     setIsLoading(false)
   
     const responses = `根据您的需求，我为您找到了以下匹配的政策：
