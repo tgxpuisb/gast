@@ -12,7 +12,7 @@ export default defineConfig(configEnv => {
   const { command, mode } = configEnv
   return {
     build: {
-      outDir: './doc'
+      outDir: './docs'
     },
     plugins: [
       react(),
