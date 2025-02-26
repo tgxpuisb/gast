@@ -16,7 +16,7 @@ const { Search } = Input
 // 模拟政策数据
 const policies = [
   { id: "1", title: "关于发挥科技创新关键和中坚作用围绕“四新”主攻“四化”的实施方案" },
-  { id: "2", title: "科技部办公厅 贵州省人民政府办公厅关于印发《“科技入黔”推动高质量发展行动方案》的通知" },
+  { id: "2", title: "“科技入黔”推动高质量发展行动方案" },
   { id: "3", title: "贵阳国家高新区关于进一步加快高新技术企业培育的政策" },
   { id: "4", title: "中华人民共和国科学技术普及法"},
   { id: "5", title: "关于进一步加强科协所属科技社团规范建设的意见"},
@@ -42,7 +42,7 @@ const policies = [
     },
     {
       "id": "11",
-      "title": "党建促会建 发挥桥梁纽带作用  平台引人才 提升服务创新能力"
+      "title": "党建促会建 发挥桥梁纽带作用"
     }
 ]
 
@@ -314,7 +314,7 @@ export default function IntelligentEnterprise() {
     <CustomNav className="w-full" activieKey="intelligent_enterprise" />
     <div className="flex-1 overflow-hidden h-full min-h-0 flex">
       <div className="flex-[0_0_320px] h-full py-6 ">
-        <div className="h-full border-r border-slate-300 px-4">
+        <div className="h-full border-r border-slate-300 px-4 w-full">
           <Search
             disabled={writing}
             className="mb-4"
@@ -340,7 +340,6 @@ export default function IntelligentEnterprise() {
                 disabled={writing}
                 type={it.id === selectedPloicy ?  'primary' : "text"}
                 key={it.id}
-                className="font-medium"
                 onClick={() => {
                   setSelectedPloicy(it.id)
                 }}
