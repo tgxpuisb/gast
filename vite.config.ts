@@ -29,9 +29,8 @@ export default defineConfig(configEnv => {
     ],
     server: {
       open: true,
-      port: 8080,
+      port: 3000,
       proxy: {
-        '/api': 'https://ohhello-server-442044699953.us-central1.run.app'
         // '/api': 'http://192.168.170.185:8080'
       },
       cors: false

@@ -130,7 +130,7 @@ export default function SciencePolicy() {
 
   }
 
-  return <div>
+  return <div className="h-full overflow-y-auto">
     
     <CustomNav className="w-full" activieKey="science_policy" />
     <Spin spinning={isLoading} tip="正在为您匹配合适的政策...">
